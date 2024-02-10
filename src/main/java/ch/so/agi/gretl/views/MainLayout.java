@@ -2,7 +2,7 @@ package ch.so.agi.gretl.views;
 
 import ch.so.agi.gretl.views.about.AboutView;
 import ch.so.agi.gretl.views.helloworld.HelloWorldView;
-import ch.so.agi.gretl.views.startgretljob.StartGRETLJobView;
+import ch.so.agi.gretl.views.startgretljob.StartJobView;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.html.Footer;
@@ -13,7 +13,10 @@ import com.vaadin.flow.component.orderedlayout.Scroller;
 import com.vaadin.flow.component.sidenav.SideNav;
 import com.vaadin.flow.component.sidenav.SideNavItem;
 import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.spring.annotation.SpringComponent;
 import com.vaadin.flow.theme.lumo.LumoUtility;
+
+import org.springframework.stereotype.Component;
 import org.vaadin.lineawesome.LineAwesomeIcon;
 
 /**
@@ -40,7 +43,7 @@ public class MainLayout extends AppLayout {
     }
 
     private void addDrawerContent() {
-        H1 appName = new H1("GRETL Executor");
+        H1 appName = new H1("GRETL Job Executor");
         appName.addClassNames(LumoUtility.FontSize.LARGE, LumoUtility.Margin.NONE);
         Header header = new Header(appName);
 
@@ -53,8 +56,8 @@ public class MainLayout extends AppLayout {
         SideNav nav = new SideNav();
 
         nav.addItem(new SideNavItem("Hello World", HelloWorldView.class, LineAwesomeIcon.GLOBE_SOLID.create()));
-        nav.addItem(new SideNavItem("Start GRETL-Job", StartGRETLJobView.class,
-                LineAwesomeIcon.PENCIL_RULER_SOLID.create()));
+        nav.addItem(new SideNavItem("Start Job", StartJobView.class,
+                LineAwesomeIcon.PLAY_SOLID.create()));
         nav.addItem(new SideNavItem("About", AboutView.class, LineAwesomeIcon.FILE.create()));
 
         return nav;
